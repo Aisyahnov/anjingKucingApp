@@ -12,7 +12,6 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from huggingface_hub import hf_hub_download
-import matplotlib.pyplot as plt
 
 # --- CONFIG ---
 HF_REPO = "aisyahnoviani16/anjingKucing"
@@ -123,3 +122,4 @@ else:
 # --- Disclaimer ---
 st.write("---")
 st.caption("⚠️ Aplikasi ini dibuat untuk tujuan demo/edukasi. Hasil prediksi tidak menggantikan penilaian profesional.")
+
