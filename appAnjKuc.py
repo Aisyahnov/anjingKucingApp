@@ -19,12 +19,14 @@ HF_FILENAME = "model_vgg16_clean.keras"
 IMAGE_SIZE = (128, 128)
 CLASS_MAP = {0: "Cat", 1: "Dog"}
 
-# --- STREAMLIT CONFIG & STYLE ---
+#STREAMLIT CONFIG
 st.set_page_config(page_title="Cats vs Dogs Classifier", page_icon="🐱🐶")
 st.markdown("""
+
+#STYLE CSS
 <style>
 .stApp { background: linear-gradient(180deg, #fffaf8 0%, #fff0f6 100%); }
-.block-container { border-radius: 14px; box-shadow: 0 6px 22px rgba(168,47,103,0.08); padding: 1.5rem; }
+.block-container { border-radius: 14px; box-shadow: 0 6px 22px rgba(168,47,103,0.08); padding-top: 4rem; }
 .stButton>button { background: linear-gradient(90deg,#ff6fa3,#ff3b84); color:white; font-weight:700; border-radius:10px; }
 .stProgress > div > div > div { background-color: #ff6fa3; }
 </style>
@@ -33,7 +35,7 @@ st.markdown("""
 st.title("🐱🐶 Cats vs Dogs Classifier")
 st.caption("Upload gambar kucing atau anjing, model akan memprediksi otomatis.")
 
-# --- MODEL LOADING ---
+# LOAD MODEL
 @st.cache_resource
 def load_model_from_hf():
     local_path = hf_hub_download(repo_id=HF_REPO, filename=HF_FILENAME, repo_type="model")
@@ -44,7 +46,7 @@ with st.spinner(" Loading model dari Hugging Face..."):
 
 st.success("✅ Model siap digunakan! Silakan upload gambar.")
 
-# --- HELPERS ---
+#HELPERS
 def preprocess_pil_image(img: Image.Image):
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -71,7 +73,7 @@ def predict_batch(model, images):
         results.append({"label": label, "score": score, "probs": probs})
     return results
 
-# --- MAIN UI ---
+# MAIN UI
 st.subheader("Cara Pakai !")
 st.markdown("""
 1. Klik **Upload** untuk memilih 1 atau lebih gambar.  
@@ -119,7 +121,8 @@ if uploaded_files:
 else:
     st.info("Upload gambar untuk memulai prediksi.")
 
-# --- Disclaimer ---
+#Disclaimer
 st.write("---")
 st.caption("⚠️ Aplikasi ini dibuat untuk tujuan demo/edukasi. Hasil prediksi tidak menggantikan penilaian profesional.")
+
 
