@@ -1,4 +1,3 @@
-# appAnjKuc.py
 """
 Streamlit app publik untuk klasifikasi Cats vs Dogs.
 Model auto-load dari Hugging Face: aisyahnoviani16/anjingKucing/model_vgg16_clean.keras
@@ -13,7 +12,7 @@ from PIL import Image
 import tensorflow as tf
 from huggingface_hub import hf_hub_download
 
-# --- CONFIG ---
+#CONFIG
 HF_REPO = "aisyahnoviani16/anjingKucing"
 HF_FILENAME = "model_vgg16_clean.keras"
 IMAGE_SIZE = (128, 128)
@@ -23,7 +22,6 @@ CLASS_MAP = {0: "Cat", 1: "Dog"}
 st.set_page_config(page_title="Cats vs Dogs Classifier", page_icon="🐱🐶")
 st.markdown("""
 
-#STYLE CSS
 <style>
 .stApp { background: linear-gradient(180deg, #fffaf8 0%, #fff0f6 100%); }
 .block-container { border-radius: 14px; box-shadow: 0 6px 22px rgba(168,47,103,0.08); padding-top: 4rem; }
@@ -124,5 +122,3 @@ else:
 #Disclaimer
 st.write("---")
 st.caption("⚠️ Aplikasi ini dibuat untuk tujuan demo/edukasi. Hasil prediksi tidak menggantikan penilaian profesional.")
-
-
