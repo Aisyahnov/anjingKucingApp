@@ -100,7 +100,7 @@ if uploaded_files:
     pred_rows = []
     for i, (img, name, res) in enumerate(zip(imgs, names, results)):
         with cols[i % len(cols)]:
-            st.image(img, caption=name, use_column_width=True)
+            st.image(img, caption=name, use_container_width=True)
             st.markdown(f"**Prediksi:** `{res['label']}` — Confidence: **{res['score']*100:.1f}%**")
             st.progress(int(res['score']*100))
 
@@ -122,3 +122,4 @@ else:
 #Disclaimer
 st.write("---")
 st.caption("⚠️ Aplikasi ini dibuat untuk tujuan demo/edukasi. Hasil prediksi tidak menggantikan penilaian profesional.")
+
